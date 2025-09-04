@@ -45,3 +45,6 @@ npm install @reduxjs/toolkit react-redux
 
 // cai dat toasti
 npm install react-toastify
+
+// cai redux
+npm install redux-persist

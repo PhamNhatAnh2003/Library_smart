@@ -3,7 +3,11 @@ import Pages from "../pages";
 import layouts from "../layouts";
 
 const publicRoutes = [
-
+  {
+    path: config.routes.other.login,
+    element: Pages.other.login,
+    layout: layouts.other.noHeader,
+  },
   {
     path: config.routes.user.home,
     element: Pages.user.home,
