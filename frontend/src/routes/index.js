@@ -3,31 +3,13 @@ import Pages from "../pages";
 import layouts from "../layouts";
 
 const publicRoutes = [
-  // {
-  //   path: config.routes.other.login,
-  //   element: Pages.other.login,
-  //   layout: layouts.other.noHeader,
-  // },
+
   {
     path: config.routes.user.home,
     element: Pages.user.home,
     layout: layouts.user.default,
   },
-  // {
-  //   path: config.routes.user.jobs,
-  //   element: Pages.user.jobs,
-  //   layout: Layouts.user.default,
-  // },
-  // {
-  //   path: config.routes.user.jobDetail,
-  //   element: Pages.user.jobDetail,
-  //   layout: Layouts.user.default,
-  // },
-  // {
-  //   path: config.routes.user.userProfile,
-  //   element: Pages.user.userProfile,
-  //   layout: Layouts.user.default,
-  // },
+
 ];
 
 const privateRoutes = [
