@@ -1,0 +1,25 @@
+.wrapper{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    background-color: var(--primary-background);
+}
+
+.logo{
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+     img {
+    width: 50px;   /* tăng kích thước logo */
+    height: 50px;  /* giữ tỉ lệ vuông */
+  }
+
+  .logo-text {
+    font-size: 28px;   /* chữ lớn hơn */
+    font-weight: bold;
+    color: #333;       /* bạn có thể chỉnh màu */
+  }
+}

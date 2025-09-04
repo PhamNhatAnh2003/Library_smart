@@ -1,0 +1,60 @@
+.banner {
+  padding: 2rem;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #4a90e2, #7ed6df);
+  color: white;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 30px;
+}
+
+.content {
+  max-width: 600px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta {
+  background-color: white;
+  color: #4a90e2;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+}
+
+.image img {
+  width: 300px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .image {
+    margin-top: 1.5rem;
+  }
+}
