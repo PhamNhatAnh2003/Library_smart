@@ -24,3 +24,85 @@
     color: #333;       /* bạn có thể chỉnh màu */
   }
 }
+
+.actions {
+  color: white !important;
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Nút Liên hệ */
+.register-btn {
+  background: #deedf0;
+  transition: all 0.2s ease;
+}
+
+.register-btn:hover {
+  background: #c6e0f7;         /* nền tím nhạt khi hover */
+}
+
+/* Nút Đăng nhập */
+.login-btn {
+  background: #6300b3;
+  color: #fff !important;
+  transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+  background: #9e9c9c;
+  color: #6300b3;
+}
+
+.user-menu {
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown {
+  width: 130px;
+  position: absolute;
+  top: 130%; 
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  z-index: 1000; 
+}
+
+.user-menu:hover .dropdown {
+  display: block; 
+}
+
+.avatar {
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  transition: all 0.3s ease;
+
+    &:hover {
+      border-color: #4cafef;
+      transform: scale(1.05);
+    }
+}
+
+.dropdown-btn {
+      text-align: left;
+      transition: all 0.25s ease;
+      margin-bottom: 5px;
+
+      &:hover {
+        background: #4cafef;
+        color: #fff;
+        transform: translateX(3px);
+      }
+
+      &:active {
+        transform: scale(0.97);
+      }
+    }
