@@ -7,10 +7,15 @@ import {
   getBooksByCategoryController,
 } from "../controller/bookController.js";
 
+import {
+  authUserMiddleware,
+  authAdminMiddleware,
+} from "../middlewares/AuthMiddleware.js";
+
 const router = express.Router();
 const upload = multer();
 
-router.post("/create", createBook);
+router.post("/create",authAdminMiddleware, createBook);
 router.get("/books", getBookByName);
 router.get("/books/category/:category", getBooksByCategoryController);
 
