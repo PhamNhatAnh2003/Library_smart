@@ -1,0 +1,11 @@
+.book-list {
+  display: flex;
+  flex-wrap: wrap; // cho xuống hàng nếu nhiều
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 1 calc(25% - 20px); // 4 card mỗi hàng (25%)
+  max-width: calc(25% - 20px);
+}
