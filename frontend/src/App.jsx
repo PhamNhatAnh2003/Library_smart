@@ -4,12 +4,13 @@ import { publicRoutes, privateRoutes } from "./routes";
 import UserDefault from "./layouts/user/Default";
 import PrivateRoute from "./routes/PrivteRoute";
 import Button from "./components/Button"
+import Card from "./components/Card"
 
 function App() {
   return (
     // <>
-    // {/* <Button secondary /> */}
-    // </>
+    // <Card />
+    //   </>
     <Router>
       <div className="App">
         <Routes>
