@@ -21,7 +21,7 @@ Book.init(
     },
     title: {
       type: DataTypes.STRING(255), 
-      unique: true,
+      unique: false,
       allowNull: false,
     },
     author: {

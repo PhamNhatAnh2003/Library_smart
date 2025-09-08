@@ -10,6 +10,7 @@ dotenv.config();
 import UserRoutes from "./routes/UserRoutes.js";
 import BookRoutes from "./routes/BookRoutes.js";
 import ReviewRoutes from "./routes/ReviewRoutes.js";
+import BorrowRoutes from "./routes/BorrowRoutes.js";
 
 const app = express();
 app.use(express.json());
@@ -47,6 +48,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", UserRoutes);
 app.use("/api/books", BookRoutes);
 app.use("/api/review", ReviewRoutes);
+app.use("/api/borrow", BorrowRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`🚀 Server is running on port ${process.env.PORT}`);

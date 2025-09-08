@@ -12,7 +12,7 @@ export async function up(queryInterface, Sequelize) {
     title: {
       type: Sequelize.STRING(255),
       allowNull: false,
-      unique: true,
+      unique: false,
     },
     author: {
       type: Sequelize.STRING(255),
