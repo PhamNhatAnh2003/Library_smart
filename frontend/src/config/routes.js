@@ -1,9 +1,9 @@
 const routes = {
   user: {
     home: "/",
-    jobs: "/jobs",
+    bookList: "/booklist",
     userProfile: "/profile",
-    jobDetail: "/jobDetail/:id",
+    bookDetail: "/bookDetail/:id",
   },
 
   staff: {},

@@ -13,7 +13,16 @@ const publicRoutes = [
     element: Pages.user.home,
     layout: layouts.user.default,
   },
-
+  {
+    path: config.routes.user.bookList,
+    element: Pages.user.bookList,
+    layout: layouts.user.default,
+  },
+  {
+    path: config.routes.user.bookDetail,
+    element: Pages.user.bookDetail,
+    layout: layouts.user.default,
+  },
 ];
 
 const privateRoutes = [
