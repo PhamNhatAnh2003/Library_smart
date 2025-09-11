@@ -3,6 +3,7 @@ import styles from "./Card.module.scss";
 import classNames from "classnames/bind";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import {formatPrice} from "@/utils/stringUtil.js"
 
 const cx = classNames.bind(styles);
 
@@ -37,17 +38,20 @@ const Card = ({ book = Book, onBorrow }) => {
 
   return (
     <div className={cx("card")}>
-      <img src={book.avatar} alt={book.title} className={cx("cover")} />
-      <div className={cx("info")}>
+      <img onClick={() => navigate(`/bookDetail/${book.id}`)} src={book.avatar} alt={book.title} className={cx("cover")} />
+      <div
+        onClick={() => navigate(`/bookDetail/${book.id}`)}
+        className={cx("info")}
+      >
         <h3 className={cx("title")}>{book.title}</h3>
         <p className={cx("author")}>Tác giả: {book.author}</p>
         <p className={cx("category")}>
           Thể loại: {book.categories?.map((c) => c.name).join(", ")}
         </p>
         <p className={cx("year")}>Năm XB: {book.published_year}</p>
-        <p className={cx("price")}>
-          Giá bán TT: {book.price.toLocaleString()} đ
-        </p>
+        <p className={cx("price")}>Giá bán TT: {formatPrice(book.price)}</p>
+      </div>
+      <div className={cx("btn")}>
         <button
           className={cx("borrow-btn")}
           onClick={handleApply}

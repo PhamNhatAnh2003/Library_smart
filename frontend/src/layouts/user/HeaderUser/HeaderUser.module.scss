@@ -3,8 +3,9 @@
   align-items: center;
   justify-content: space-between;
     width: 100%;
-    height: 60px;
+    height: 70px;
     background-color: var(--primary-background);
+  border-bottom: 2px solid var(--secondary);
 }
 
 .logo{
@@ -45,14 +46,14 @@
 
 /* Nút Đăng nhập */
 .login-btn {
-  background: #6300b3;
+  background: #4cafef;
   color: #fff !important;
   transition: all 0.2s ease;
 }
 
 .login-btn:hover {
-  background: #9e9c9c;
-  color: #6300b3;
+  background: #4cafef;
+  color: #4cafef;
 }
 
 .user-menu {
