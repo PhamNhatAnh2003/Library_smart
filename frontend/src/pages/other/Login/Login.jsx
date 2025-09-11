@@ -80,7 +80,7 @@ export default function AuthForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="button" onClick={handleSignUp} disabled={loading}>
+            <button type="submit" onClick={handleSignUp} disabled={loading}>
               {loading ? "Loading..." : "Sign Up"}
             </button>
             {error && <p className={styles.error}>{error}</p>}
@@ -108,7 +108,7 @@ export default function AuthForm() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <a href="#">Forget Your password</a>
-            <button type="button" onClick={handleLogin} disabled={loading}>
+            <button type="submit" onClick={handleLogin} disabled={loading}>
               {loading ? "Loading..." : "Sign In"}
             </button>
             {error && <p className={styles.error}>{error}</p>}
