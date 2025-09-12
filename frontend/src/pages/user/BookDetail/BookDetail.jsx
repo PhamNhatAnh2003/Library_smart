@@ -8,6 +8,7 @@ import styles from "./BookDetail.module.scss";
 import classNames from "classnames/bind";
 import Button from "../../../components/Button/Button";
 import { useSelector } from "react-redux";
+import {getBookById} from "@/services/bookServices/bookService";
 
 const cx = classNames.bind(styles);
 
@@ -27,7 +28,25 @@ const Book = {
 };
 
 const BookDetail = ({ book = Book }) => {
-      const navigate = useNavigate();
+    const { id } = useParams();
+    const [book, setBook] = useState(null);
+    const navigate = useNavigate();
+    const user = useSelector((state) => state.auth.user);
+
+
+useEffect(() => {
+  const fetchBook = async () => {
+    try {
+      const res = await getBookById(id); 
+      setBook(res.data);
+      console.log(res);
+    } catch (err) {
+      console.error("Lỗi khi gọi API:", err);
+    }
+  };
+  fetchBook();
+}, [id]);
+
   return (
     <div className={cx("wrapper")}>
       <div className={cx("page-content")}>
