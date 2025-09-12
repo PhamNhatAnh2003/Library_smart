@@ -4,7 +4,14 @@ const { Book, Category } = models;
 import { Op } from "sequelize";
 
 // Lấy sách theo name
-export const getBooksService = async ({ name, category, author, year, minPrice, maxPrice }) => {
+export const getBooksService = async ({
+  name,
+  category,
+  author,
+  year,
+  minPrice,
+  maxPrice,
+}) => {
   try {
     const whereClause = {};
 
@@ -15,7 +22,7 @@ export const getBooksService = async ({ name, category, author, year, minPrice, 
 
     // lọc theo category (genre)
     if (category) {
-      whereClause.genre = category; 
+      whereClause.genre = category;
     }
 
     // lọc theo author
@@ -28,13 +35,13 @@ export const getBooksService = async ({ name, category, author, year, minPrice, 
       whereClause.published_year = year;
     }
 
-          if (minPrice && maxPrice) {
-            whereClause.price = { [Op.between]: [minPrice, maxPrice] };
-          } else if (minPrice) {
-            whereClause.price = { [Op.gte]: minPrice };
-          } else if (maxPrice) {
-            whereClause.price = { [Op.lte]: maxPrice };
-          }
+    if (minPrice && maxPrice) {
+      whereClause.price = { [Op.between]: [minPrice, maxPrice] };
+    } else if (minPrice) {
+      whereClause.price = { [Op.gte]: minPrice };
+    } else if (maxPrice) {
+      whereClause.price = { [Op.lte]: maxPrice };
+    }
 
     const books = await Book.findAll({
       where: whereClause,
@@ -55,18 +62,16 @@ export const getBooksService = async ({ name, category, author, year, minPrice, 
   }
 };
 
-
-
 export const getBooksByCategoryService = async (categoryName) => {
   try {
     const books = await Book.findAll({
       include: [
         {
           model: Category,
-          as: "categories", // alias phải đúng
+          as: "categories", 
           attributes: ["id", "name"],
-          where: { name: categoryName }, // lọc category theo tên
-          through: { attributes: [] }, // ẩn cột bảng trung gian
+          where: { name: categoryName }, 
+          through: { attributes: [] }, 
         },
       ],
       order: [["created_at", "DESC"]],
@@ -75,5 +80,22 @@ export const getBooksByCategoryService = async (categoryName) => {
     return books;
   } catch (error) {
     throw new Error("Lỗi khi lấy sách theo category: " + error.message);
+  }
+};
+
+export const getBookByIdService = async (id) => {
+  try {
+    const book = await Book.findByPk(id, {
+      include: [
+        { model: Category, as: "categories", attributes: ["id", "name"] },
+      ],
+      order: [["created_at", "DESC"]],
+    });
+    if (!book) {
+      throw new Error("Không tìm thấy sách với ID: " + id);
+    }
+    return book;
+  } catch (error) {
+    throw new Error("Lỗi khi lấy sách theo ID: " + error.message);
   }
 };

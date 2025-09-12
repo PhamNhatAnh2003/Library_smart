@@ -5,6 +5,7 @@ import {
   createBook,
   getBookByName,
   getBooksByCategoryController,
+  getBookById,
 } from "../controller/bookController.js";
 
 import {
@@ -17,6 +18,7 @@ const upload = multer();
 
 router.post("/create",authAdminMiddleware, createBook);
 router.get("/books", getBookByName);
+router.get("/books/:id", getBookById);
 router.get("/books/category/:category", getBooksByCategoryController);
 
 
