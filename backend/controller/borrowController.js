@@ -7,12 +7,12 @@ import {
 
 export const borrowBooks = async (req, res) => {
   try {
-    const { user_id, book_id} = req.body;
+    const { user_id, book_id, due_date, return_date} = req.body;
     if (!user_id || !book_id) {
       return res.status(400).json({ message: "Thiếu thông tin để mượn" });
     }
 
-    const borrow = await borrowBook(user_id, book_id);
+    const borrow = await borrowBook(user_id, book_id, due_date, return_date);
     res.status(201).json({ message: "Mượn sách thành công", borrow });
   } catch (error) {
     res.status(500).json({ message: error.message });
