@@ -2,12 +2,13 @@ import models from "../../models/index.js";
 import dayjs from "dayjs";
 const { Borrow, User, Book } = models;
 
-export const borrowBook = async (user_id, book_id) => {
+export const borrowBook = async (user_id, book_id, due_date, return_date) => {
   try {
     const newBorrow = await Borrow.create({
       book_id,
       user_id,
-      due_date: dayjs().add(7, "day").toDate(),
+      due_date,
+      return_date,
     });
 
    const borrowWithDetail = await Borrow.findByPk(newBorrow.id, {
