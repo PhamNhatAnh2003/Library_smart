@@ -16,12 +16,13 @@ export const getBookByName = async (filters = {}) => {
 
 export const getBookById = async (id) => {
   try {
-    const res = await axios.get(`${API_URL}/books/${id}`); 
-    console.log(res);
-    return res.data;
-  } 
-    catch (error) {
-    console.error("Error fetching book by ID:", error);
+    const { data } = await axios.get(`${API_URL}/books/books/${id}`);
+    return data.data; 
+  } catch (error) {
+    console.error(
+      "Error fetching book by ID:",
+      error.response?.data || error.message
+    );
     throw error;
-  }   
+  }
 };
