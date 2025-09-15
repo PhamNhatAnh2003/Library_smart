@@ -6,11 +6,12 @@ import PrivateRoute from "./routes/PrivteRoute";
 import Button from "./components/Button"
 import Card from "./components/Card"
 import BookList from "./pages/user/BookList";
+import Popup from "./components/Popup";
 
 function App() {
   return (
     // <>
-    // <BookList />
+    // <Popup />
     //   </>
     <Router>
       <div className="App">

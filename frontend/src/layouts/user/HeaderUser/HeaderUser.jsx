@@ -6,8 +6,7 @@ import Button from "@/components/Button";
 import { useNavigate } from "react-router-dom"; 
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "@/Redux/features/authSlice";
-import config from "@/config";
-
+import config from "~/config";
 
 const cx = classNames.bind(styles);
 
@@ -32,7 +31,10 @@ const HeaderUser = () => {
 
   return (
     <div className={cx("wrapper")}>
-      <div className={cx("logo")}>
+      <div
+        onClick={() => navigate(config.routes.user.home)}
+        className={cx("logo")}
+      >
         <img src={images.react} alt="" />
         <div className={cx("logo-text")}>Library_smart</div>
       </div>
@@ -46,7 +48,7 @@ const HeaderUser = () => {
               Đăng ký
             </Button>
             <Button
-            secondary
+              secondary
               onClick={() => navigate("/login")}
               className={cx("login-btn")}
             >
